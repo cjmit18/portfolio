@@ -1,0 +1,67 @@
+a {
+    color:aqua;
+}
+.mainbackgroundshade {
+    background-color: rgb(122, 122, 122);
+    padding-left: 10px;
+    height: 100vh;
+}
+
+.nameheader {
+    color:rgb(255, 255, 255);
+    font-size: 32px;
+    padding-left: 128px;
+}
+
+#toptext {
+    color: rgb(73, 21, 21);
+    font-size: 24px;
+    text-align: center;
+    }
+#bottomtext {
+    color: rgb(73,21,21);
+    font-size:18px;
+    text-align: center;
+}
+#pagetext {
+    font-size: 24px; 
+    color: White; 
+    line-height: 1.5; 
+    text-align:center;
+    padding-top: 28px;
+}
+.navbar ul{
+    display: flex;
+    font-size: 24px;
+    padding-top:20px;
+    list-style: none;
+    height: 50px;
+    justify-content: space-between;
+}
+
+.navspace {
+    display: flex;
+    gap: 32px;
+    padding-right: 156px;
+}
+.pagetopborder{
+    border-top: 2px solid white;
+    max-width:80%;
+    margin: 0 auto;
+    
+}
+.page {
+    justify-content: center;
+    height: min-content;
+    padding: 20px;
+}
+
+footer {
+    background-color: Green;
+}
+.footer{
+    color: rgb(255, 255, 255);
+}
+body {
+    background-color: black;
+}
