@@ -1,33 +1,82 @@
-<!DOCTYPE html>
-<html lang="en"> 
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Wayne Mitchell</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <ul>
-                <span id="nameheader">Wayne Mitchell</span>
-                <div class="navspace">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="skills.html">Skills</a></li> 
-                    <li><a href="contact.html">Contact</a></li>
-                </div>
-            </ul>
-        </nav>
-    </header>
-    <div id="mainbackgroundshade">
-    <main>
-        <div id="page">
-        <p id="maintext">This is the main content of the projects page.</p>
-        </div>
-    </main>
-    </div>
+  <div class="site-wrapper">
+    <nav>
+      <span class="nav-name">Wayne Mitchell</span>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="page-header">
+      <div class="section-label">selected work</div>
+      <h1>Projects & systems</h1>
+      <p class="page-intro">A curated collection of systems, tooling, and engine work built for performance, modularity, and real-time applications.</p>
+    </section>
+
+    <section class="projects">
+      <div class="project-grid">
+        <a class="project-card featured" href="#">
+          <div>
+            <div class="project-tag">engine / c++</div>
+            <div class="project-title">Modular RPG Engine</div>
+            <p class="project-desc">A ground-up game engine with custom ECS, deferred rendering, async event bus, and pluggable AI behavior trees.</p>
+            <span class="project-arrow">↗</span>
+          </div>
+          <div class="project-thumb">
+            <div class="thumb-inner">
+              <div class="thumb-dot"></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-card" href="#">
+          <div class="project-thumb" style="margin-bottom:20px;">
+            <div class="thumb-inner blue"><div class="thumb-dot"></div></div>
+          </div>
+          <div class="project-tag">systems / networking</div>
+          <div class="project-title">Async Job Queue</div>
+          <p class="project-desc">Lock-free work-stealing queue for distributed task scheduling across remote workers.</p>
+          <span class="project-arrow">↗</span>
+        </a>
+
+        <a class="project-card" href="#">
+          <div class="project-thumb" style="margin-bottom:20px;">
+            <div class="thumb-inner coral"><div class="thumb-dot"></div></div>
+          </div>
+          <div class="project-tag">tooling / data structures</div>
+          <div class="project-title">Intrusive List Library</div>
+          <p class="project-desc">Header-only C++ intrusive linked list with O(1) splice, safe iteration, and zero-alloc design.</p>
+          <span class="project-arrow">↗</span>
+        </a>
+
+        <a class="project-card" href="#">
+          <div class="project-thumb" style="margin-bottom:20px;">
+            <div class="thumb-inner"><div class="thumb-dot"></div></div>
+          </div>
+          <div class="project-tag">tooling / automation</div>
+          <div class="project-title">Build Pipeline Dashboard</div>
+          <p class="project-desc">Custom dashboard for build metrics, dependency analysis, and continuous delivery insights.</p>
+          <span class="project-arrow">↗</span>
+        </a>
+      </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 My Website</p>
+      <span>© 2026 Wayne Mitchell</span>
+      <span>Built for performance and clarity</span>
     </footer>
+  </div>
+</body>
 </html>

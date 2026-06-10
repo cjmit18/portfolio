@@ -1,42 +1,117 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wayne Mitchell | Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <ul>
-                <span class="nameheader">Wayne Mitchell</span>
-                <div class="navspace">
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="resume.html">Resume</a></li> 
-                   <li><a href="skills.html">Skills</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </div>
-            </ul>
-        </nav>
-    </header>
-    <div class="mainbackgroundshade">
-    <main>
-            <div class="pagetopborder"></div>
-            <div id="page">
-                <p id="toptext">Computer Science Major | Artificial Intelligence Minor</p>
-                <p id="bottomtext">A.A.S Computer Programming</p>
-                <p id = pagetext>I am a computer science major with a minor in artificial intelligence at Lewis University and an associates degree in computer programming. I have experience in programming languages such as Python, Java, and C++. I am passionate about learning new technologies and applying them to solve real-world problems. In my free time, I enjoy working on personal projects, contributing to open source, and exploring the latest advancements in AI and machine learning.</p><br>
-            </div>
-            <div class="carousel">
-                <buttton class="prev">&LeftArrow;</buttton> 
-            </div>
-    </main>
+  <div class="site-wrapper">
+    <nav>
+      <span class="nav-name">Wayne Mitchell</span>
+      <ul class="nav-links">
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-tag">available for projects</div>
+      <h1>Software<br>engineer &amp;<br><em>builder</em></h1>
+      <p class="hero-sub">I design and build systems that are fast, modular, and made to last. Currently focused on engine architecture, rendering, and real-time systems.</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="projects.html">view projects ↗</a>
+        <a class="btn-ghost" href="resume.html">download resume</a>
+      </div>
+    </section>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">years building</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">12</div>
+        <div class="stat-label">shipped projects</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">open source repos</div>
+      </div>
     </div>
-    <div class="footer">Test
+
+    <section class="projects">
+      <div class="section-label">selected work</div>
+      <div class="project-grid">
+        <a class="project-card featured" href="projects.html">
+          <div>
+            <div class="project-tag">engine / c++</div>
+            <div class="project-title">Modular RPG Engine</div>
+            <p class="project-desc">A ground-up game engine with custom ECS, deferred rendering pipeline, async event bus, and pluggable AI behavior trees.</p>
+            <span class="project-arrow">↗</span>
+          </div>
+          <div class="project-thumb">
+            <div class="thumb-inner">
+              <div class="thumb-dot"></div>
+            </div>
+          </div>
+        </a>
+
+        <a class="project-card" href="projects.html">
+          <div class="project-thumb" style="margin-bottom:20px;">
+            <div class="thumb-inner blue"><div class="thumb-dot"></div></div>
+          </div>
+          <div class="project-tag">systems / networking</div>
+          <div class="project-title">Async Job Queue</div>
+          <p class="project-desc">Lock-free work-stealing queue for distributed task scheduling across remote workers.</p>
+          <span class="project-arrow">↗</span>
+        </a>
+
+        <a class="project-card" href="projects.html">
+          <div class="project-thumb" style="margin-bottom:20px;">
+            <div class="thumb-inner coral"><div class="thumb-dot"></div></div>
+          </div>
+          <div class="project-tag">tooling / data structures</div>
+          <div class="project-title">Intrusive List Library</div>
+          <p class="project-desc">Header-only C++ intrusive linked list with O(1) splice, safe iteration, and zero-alloc design.</p>
+          <span class="project-arrow">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="skills">
+      <div class="section-label">technologies</div>
+      <div class="skill-list">
+        <span class="skill-pill">C++</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">AI / ML</span>
+        <span class="skill-pill">Algorithms</span>
+        <span class="skill-pill">Data Structures</span>
+        <span class="skill-pill">Git</span>
+        <span class="skill-pill">Linux</span>
+        <span class="skill-pill">SQL</span>
+        <span class="skill-pill">React</span>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Let’s build something bold together.</h2>
+      <p>Reach out if you'd like to collaborate on engine tooling, AI systems, or real-time software.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="contact.html">contact page</a>
+        <span class="contact-divider"></span>
+        <a class="contact-link" href="mailto:hello@example.com">hello@example.com</a>
+      </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 My Website</p>
+      <span>© 2026 Wayne Mitchell</span>
+      <span>Built for performance and clarity</span>
     </footer>
+  </div>
 </body>
-    </div>
 </html>

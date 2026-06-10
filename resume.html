@@ -1,36 +1,81 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Page</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume | Wayne Mitchell</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-           <ul>
-                <span id="nameheader">Wayne Mitchell</span>
-                <div class="navspace">
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                   <li><a href="skills.html">Skills</a></li> 
-                    <li><a href="contact.html">Contact</a></li>
-                </div>
-            </ul>
-        </nav>
-    </header>
-    <div id="mainbackgroundshade">
-    <main>
-        <div id="page">
-            <p id="maintext">This is the main content of the resume page.</p>
-            <div id="resume">
-            <embed src="resume.pdf" width="100%" height="1200px">
-            </div>
+  <div class="site-wrapper">
+    <nav>
+      <span class="nav-name">Wayne Mitchell</span>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <section class="page-header">
+      <div class="section-label">professional summary</div>
+      <h1>Resume</h1>
+      <p class="page-intro">A concise overview of experience, technical strengths, and achievements.</p>
+    </section>
+
+    <section class="resume-overview">
+      <div class="btn-group">
+        <a class="btn-primary" href="resume.pdf" target="_blank">Download PDF</a>
+      </div>
+    </section>
+
+    <section class="resume-grid">
+      <div class="resume-section">
+        <div class="resume-item">
+          <div class="resume-item-title">Software Engineer</div>
+          <div class="resume-item-meta">June 2023 — Present • Engine Architecture Team</div>
+          <p class="resume-item-desc">Designed reusable engine systems, optimized rendering pipelines, and implemented async task scheduling for real-time applications.</p>
         </div>
-    </main>
-    </div>
+
+        <div class="resume-item">
+          <div class="resume-item-title">Systems Developer</div>
+          <div class="resume-item-meta">January 2021 — May 2023 • Infrastructure and tooling</div>
+          <p class="resume-item-desc">Built developer tooling, CI dashboards, and networking libraries to improve reliability and team productivity.</p>
+        </div>
+
+        <div class="resume-item">
+          <div class="resume-item-title">Open Source Contributor</div>
+          <div class="resume-item-meta">Ongoing</div>
+          <p class="resume-item-desc">Maintained C++ libraries, performance utilities, and documentation for reusable engine and data structure components.</p>
+        </div>
+      </div>
+
+      <div class="resume-section">
+        <div class="resume-item">
+          <div class="resume-item-title">Education</div>
+          <div class="resume-item-meta">A.A.S. in Computer Programming</div>
+          <p class="resume-item-desc">Coursework in algorithms, AI systems, software architecture, and computer graphics.</p>
+        </div>
+
+        <div class="resume-item">
+          <div class="resume-item-title">Technical Skills</div>
+          <p class="resume-item-desc">C++, Python, JavaScript, Rust, OpenGL, Vulkan, SQL, Linux, Git, Docker, CMake, multithreading, networking.</p>
+        </div>
+
+        <div class="resume-item">
+          <div class="resume-item-title">Awards</div>
+          <div class="resume-item-meta">Dean's List • Project Excellence</div>
+          <p class="resume-item-desc">Recognized for system design, architecture improvements, and delivery of high-impact engineering projects.</p>
+        </div>
+      </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 My Website</p>
+      <span>© 2026 Wayne Mitchell</span>
+      <span>Built for performance and clarity</span>
     </footer>
+  </div>
+</body>
 </html>
