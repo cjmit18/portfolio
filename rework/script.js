@@ -1,4 +1,3 @@
-
 const { useState, useEffect } = React;
 
 const G = { light:"#EAF3DE", mid:"#639922", text:"#3B6D11", dark:"#27500A" };
@@ -427,38 +426,77 @@ function ChecklistTab({completed,toggle,expanded,togglePhase}) {
 }
 
 function App() {
-  const [tab, setTab] = useState("overview");
-  
-  // Load from localStorage or use defaults
+  const [tab, setTab] = useState(() => {
+    const saved = localStorage.getItem('stationiq_tab');
+    return saved || "overview";
+  });
+
   const [completed, setCompleted] = useState(() => {
     const saved = localStorage.getItem('stationiq_completed');
     return saved ? new Set(JSON.parse(saved)) : new Set();
   });
-  
+
   const [expanded, setExpanded] = useState(() => {
     const saved = localStorage.getItem('stationiq_expanded');
     return saved ? new Set(JSON.parse(saved)) : new Set(["p0"]);
   });
 
-  // Save completed items to localStorage whenever they change
   useEffect(() => {
-    localStorage.setItem('stationiq_completed', JSON.stringify([...completed]));
+    try {
+      localStorage.setItem('stationiq_tab', tab);
+    } catch (e) {
+      // ignore storage failures
+    }
+  }, [tab]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('stationiq_completed', JSON.stringify([...completed]));
+    } catch (e) {
+      // ignore storage failures
+    }
   }, [completed]);
 
-  // Save expanded phases to localStorage whenever they change
   useEffect(() => {
-    localStorage.setItem('stationiq_expanded', JSON.stringify([...expanded]));
+    try {
+      localStorage.setItem('stationiq_expanded', JSON.stringify([...expanded]));
+    } catch (e) {
+      // ignore storage failures
+    }
   }, [expanded]);
 
   const toggle = id => setCompleted(prev=>{
     const n=new Set(prev); n.has(id)?n.delete(id):n.add(id); return n;
   });
-  
   const togglePhase = id => setExpanded(prev=>{
     const n=new Set(prev); n.has(id)?n.delete(id):n.add(id); return n;
   });
 
-  // ... rest of the function remains the same
+  const TABS=[["overview","Overview"],["stack","Tech stack"],["arch","Architecture"],["roadmap","Roadmap"],["checklist","Dev checklist"]];
+
+  return <div style={{fontFamily:"var(--font-sans)",minHeight:"100vh"}}>
+    <div style={{borderBottom:"0.5px solid var(--color-border-tertiary)",background:"var(--color-background-primary)",padding:"18px 24px 0",position:"sticky",top:0,zIndex:10}}>
+      <div style={{display:"flex",alignItems:"baseline",gap:12,marginBottom:2}}>
+        <span style={{fontSize:22,fontWeight:500,color:G.text}}>StationIQ</span>
+        <span style={{fontSize:11,fontFamily:"var(--font-mono)",background:"var(--color-background-secondary)",color:"var(--color-text-tertiary)",padding:"2px 8px",borderRadius:4}}>v0.1 — planning</span>
+      </div>
+      <div style={{fontSize:12,color:"var(--color-text-tertiary)",fontFamily:"var(--font-mono)",marginBottom:16}}>cannabis kitchen operations & training management · C++20 / Qt6</div>
+      <div style={{display:"flex",gap:0}}>
+        {TABS.map(([id,label])=>(
+          <button key={id} onClick={()=>setTab(id)} style={{background:"none",border:"none",borderBottom:tab===id?`2px solid ${G.mid}`:"2px solid transparent",padding:"8px 16px",fontSize:13,fontWeight:500,color:tab===id?G.text:"var(--color-text-secondary)",cursor:"pointer",transition:"color .15s,border-color .15s"}}>
+            {label}
+          </button>
+        ))}
+      </div>
+    </div>
+    <div style={{padding:"28px 24px",maxWidth:980,margin:"0 auto"}}>
+      {tab==="overview"&&<OverviewTab/>}
+      {tab==="stack"&&<StackTab/>}
+      {tab==="arch"&&<ArchTab/>}
+      {tab==="roadmap"&&<RoadmapTab/>}
+      {tab==="checklist"&&<ChecklistTab completed={completed} toggle={toggle} expanded={expanded} togglePhase={togglePhase}/>}
+    </div>
+  </div>;
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);
