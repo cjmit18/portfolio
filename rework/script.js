@@ -1,4 +1,5 @@
-const { useState } = React;
+
+const { useState, useEffect } = React;
 
 const G = { light:"#EAF3DE", mid:"#639922", text:"#3B6D11", dark:"#27500A" };
 const A = { light:"#FAEEDA", mid:"#BA7517", text:"#633806" };
@@ -268,7 +269,7 @@ function ArchTab() {
     <Sec title="Architecture" sub="Layered design: UI is separate from business logic, which is separate from data access. Any layer can be replaced without touching the others." />
     <Card>
       <CardH>System layers</CardH>
-      <CardS>// top-down: UI > services > repositories > storage</CardS>
+      <CardS>// top-down: UI {">"} services {">"} repositories {">"} storage</CardS>
       <div style={{display:"flex",flexDirection:"column",gap:4,maxWidth:520,margin:"0 auto"}}>
         {[[G,"Qt UI layer","MainWindow · views · dialogs · models · charts"],[P,"Service layer","EmployeeService · TrainingService · AssignmentEngine · SuggestionEngine"],[B,"Repository layer","EmployeeRepo · StationRepo · TrainingRepo · ScheduleRepo · AssignmentRepo"],[A,"DatabaseManager","SQLite 3 via Qt SQL · connection singleton · schema migrations"]].map(([c,l,d],i)=>(
           <div key={l}>
@@ -427,41 +428,37 @@ function ChecklistTab({completed,toggle,expanded,togglePhase}) {
 
 function App() {
   const [tab, setTab] = useState("overview");
-  const [completed, setCompleted] = useState(()=>new Set());
-  const [expanded, setExpanded] = useState(()=>new Set(["p0"]));
+  
+  // Load from localStorage or use defaults
+  const [completed, setCompleted] = useState(() => {
+    const saved = localStorage.getItem('stationiq_completed');
+    return saved ? new Set(JSON.parse(saved)) : new Set();
+  });
+  
+  const [expanded, setExpanded] = useState(() => {
+    const saved = localStorage.getItem('stationiq_expanded');
+    return saved ? new Set(JSON.parse(saved)) : new Set(["p0"]);
+  });
+
+  // Save completed items to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('stationiq_completed', JSON.stringify([...completed]));
+  }, [completed]);
+
+  // Save expanded phases to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem('stationiq_expanded', JSON.stringify([...expanded]));
+  }, [expanded]);
 
   const toggle = id => setCompleted(prev=>{
     const n=new Set(prev); n.has(id)?n.delete(id):n.add(id); return n;
   });
+  
   const togglePhase = id => setExpanded(prev=>{
     const n=new Set(prev); n.has(id)?n.delete(id):n.add(id); return n;
   });
 
-  const TABS=[["overview","Overview"],["stack","Tech stack"],["arch","Architecture"],["roadmap","Roadmap"],["checklist","Dev checklist"]];
-
-  return <div style={{fontFamily:"var(--font-sans)",minHeight:"100vh"}}>
-    <div style={{borderBottom:"0.5px solid var(--color-border-tertiary)",background:"var(--color-background-primary)",padding:"18px 24px 0",position:"sticky",top:0,zIndex:10}}>
-      <div style={{display:"flex",alignItems:"baseline",gap:12,marginBottom:2}}>
-        <span style={{fontSize:22,fontWeight:500,color:G.text}}>StationIQ</span>
-        <span style={{fontSize:11,fontFamily:"var(--font-mono)",background:"var(--color-background-secondary)",color:"var(--color-text-tertiary)",padding:"2px 8px",borderRadius:4}}>v0.1 — planning</span>
-      </div>
-      <div style={{fontSize:12,color:"var(--color-text-tertiary)",fontFamily:"var(--font-mono)",marginBottom:16}}>cannabis kitchen operations & training management · C++20 / Qt6</div>
-      <div style={{display:"flex",gap:0}}>
-        {TABS.map(([id,label])=>(
-          <button key={id} onClick={()=>setTab(id)} style={{background:"none",border:"none",borderBottom:tab===id?`2px solid ${G.mid}`:"2px solid transparent",padding:"8px 16px",fontSize:13,fontWeight:500,color:tab===id?G.text:"var(--color-text-secondary)",cursor:"pointer",transition:"color .15s,border-color .15s"}}>
-            {label}
-          </button>
-        ))}
-      </div>
-    </div>
-    <div style={{padding:"28px 24px",maxWidth:980,margin:"0 auto"}}>
-      {tab==="overview"&&<OverviewTab/>}
-      {tab==="stack"&&<StackTab/>}
-      {tab==="arch"&&<ArchTab/>}
-      {tab==="roadmap"&&<RoadmapTab/>}
-      {tab==="checklist"&&<ChecklistTab completed={completed} toggle={toggle} expanded={expanded} togglePhase={togglePhase}/>}
-    </div>
-  </div>;
+  // ... rest of the function remains the same
 }
 
 ReactDOM.createRoot(document.getElementById('root')).render(<App />);

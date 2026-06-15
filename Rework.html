@@ -303,7 +303,7 @@ function ArchTab() {
     <Sec title="Architecture" sub="Layered design: UI is separate from business logic, which is separate from data access. Any layer can be replaced without touching the others." />
     <Card>
       <CardH>System layers</CardH>
-      <CardS>// top-down: UI > services > repositories > storage</CardS>
+      <CardS>// top-down: UI {'>'} services {'>'} repositories {'>'} storage</CardS>
       <div style={{display:"flex",flexDirection:"column",gap:4,maxWidth:520,margin:"0 auto"}}>
         {[[G,"Qt UI layer","MainWindow · views · dialogs · models · charts"],[P,"Service layer","EmployeeService · TrainingService · AssignmentEngine · SuggestionEngine"],[B,"Repository layer","EmployeeRepo · StationRepo · TrainingRepo · ScheduleRepo · AssignmentRepo"],[A,"DatabaseManager","SQLite 3 via Qt SQL · connection singleton · schema migrations"]].map(([c,l,d],i)=>(
           <div key={l}>
