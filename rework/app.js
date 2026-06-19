@@ -1,4 +1,4 @@
-const { useState, useEffect } = React;
+const { useState } = React;
 
 const G = { light:"#EAF3DE", mid:"#639922", text:"#3B6D11", dark:"#27500A" };
 const A = { light:"#FAEEDA", mid:"#BA7517", text:"#633806" };
@@ -71,7 +71,7 @@ const PHASES = [
       { id:"p4-7", text:"Implement DailyStaffOverview strip: present employees, unassigned count, quick-add to station", prio:"h" },
       { id:"p4-8", text:"Persist finalized assignments to DB with save timestamp and Auto vs Manual method flag", prio:"n" },
     ]},
-  { id:"p5", title:"Reporting & analytics", weeks:"Weeks 16-18", color:"#9575cd",
+  { id:"p5", title:"Reporting & analytics", weeks:"Weeks 16-18", color:{ light:"#EEE7F9", mid:"#9575CD", text:"#4A3A79", dark:"#3A2E5C" },
     items:[
       { id:"p5-1", text:"Implement Training Coverage Report: per-station table showing % of active workforce at each certification level", prio:"h" },
       { id:"p5-2", text:"Implement Staff Readiness Report: stations ranked by how exposed they are when key employees are absent", prio:"h" },
@@ -268,7 +268,7 @@ function ArchTab() {
     <Sec title="Architecture" sub="Layered design: UI is separate from business logic, which is separate from data access. Any layer can be replaced without touching the others." />
     <Card>
       <CardH>System layers</CardH>
-      <CardS>// top-down: UI {">"} services {">"} repositories {">"} storage</CardS>
+      <CardS>// top-down: UI {'>'} services {'>'} repositories {'>'} storage</CardS>
       <div style={{display:"flex",flexDirection:"column",gap:4,maxWidth:520,margin:"0 auto"}}>
         {[[G,"Qt UI layer","MainWindow · views · dialogs · models · charts"],[P,"Service layer","EmployeeService · TrainingService · AssignmentEngine · SuggestionEngine"],[B,"Repository layer","EmployeeRepo · StationRepo · TrainingRepo · ScheduleRepo · AssignmentRepo"],[A,"DatabaseManager","SQLite 3 via Qt SQL · connection singleton · schema migrations"]].map(([c,l,d],i)=>(
           <div key={l}>
@@ -426,44 +426,9 @@ function ChecklistTab({completed,toggle,expanded,togglePhase}) {
 }
 
 function App() {
-  const [tab, setTab] = useState(() => {
-    const saved = localStorage.getItem('stationiq_tab');
-    return saved || "overview";
-  });
-
-  const [completed, setCompleted] = useState(() => {
-    const saved = localStorage.getItem('stationiq_completed');
-    return saved ? new Set(JSON.parse(saved)) : new Set();
-  });
-
-  const [expanded, setExpanded] = useState(() => {
-    const saved = localStorage.getItem('stationiq_expanded');
-    return saved ? new Set(JSON.parse(saved)) : new Set(["p0"]);
-  });
-
-  useEffect(() => {
-    try {
-      localStorage.setItem('stationiq_tab', tab);
-    } catch (e) {
-      // ignore storage failures
-    }
-  }, [tab]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem('stationiq_completed', JSON.stringify([...completed]));
-    } catch (e) {
-      // ignore storage failures
-    }
-  }, [completed]);
-
-  useEffect(() => {
-    try {
-      localStorage.setItem('stationiq_expanded', JSON.stringify([...expanded]));
-    } catch (e) {
-      // ignore storage failures
-    }
-  }, [expanded]);
+  const [tab, setTab] = useState("overview");
+  const [completed, setCompleted] = useState(()=>new Set());
+  const [expanded, setExpanded] = useState(()=>new Set(["p0"]));
 
   const toggle = id => setCompleted(prev=>{
     const n=new Set(prev); n.has(id)?n.delete(id):n.add(id); return n;
