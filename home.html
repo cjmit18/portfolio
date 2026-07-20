@@ -15,18 +15,23 @@
         <li><a href="resume.html">Resume</a></li>
         <li><a href="skills.html">Skills</a></li>
         <li><a href="contact.html">Contact</a></li>
-        <li><a href="rework\index.html">Rework</a></li>
+        <li><a href="rework/index.html">Rework</a></li>
       </ul>
     </nav>
 
     <section class="hero">
       <div class="hero-tag">available for projects</div>
       <h1>Software<br>engineer &amp;<br><em>builder</em></h1>
-      <p class="hero-sub">I design and build systems that are fast, modular, and made to last. Currently focused on engine architecture, rendering, and real-time systems.</p>
+      <p class="hero-sub">I build systems that hold up under real, ongoing use, not just demos. Currently focused on engine architecture, rendering, and real-time systems.</p>
       <div class="hero-cta">
         <a class="btn-primary" href="projects.html">view projects ↗</a>
         <a class="btn-ghost" href="resume.html">download resume</a>
       </div>
+    </section>
+
+    <section class="about">
+      <div class="section-label">about</div>
+      <p class="about-copy">I'm working toward a B.S. in Computer Science with an AI minor at Lewis University, set to finish in 2028. Before that I completed an A.A.S. in Computer Programming at Joliet Junior College, graduating with honors, and an A.A.S. in Culinary Arts at Kendall College. That path from culinary work to systems programming is part of why I build the way I do. I care about software that holds up under real, ongoing use, not just software that works in a demo. I'm also looking at the Fast Track option toward an M.S. in Computer Science with an AI concentration at Lewis, which includes a connection to Argonne National Laboratory.</p>
     </section>
 
     <div class="stats">
@@ -35,7 +40,7 @@
         <div class="stat-label">years building</div>
       </div>
       <div class="stat">
-        <div class="stat-num">5</div>
+        <div class="stat-num">3</div>
         <div class="stat-label">Completed projects</div>
       </div>
       <div class="stat">
@@ -51,7 +56,7 @@
           <div>
             <div class="project-tag">engine / c++</div>
             <div class="project-title">Modular RPG Engine</div>
-            <p class="project-desc">A ground-up game engine with custom ECS, deferred rendering pipeline and a customizeable physics engine.</p>
+            <p class="project-desc">A modular RPG engine built in C++ on raylib, using data-oriented design and Design by Contract as guiding principles. Includes a custom ECS, a deferred rendering pipeline, and a customizable physics engine, along with a full Map, Chunk, and Tile hierarchy (with a GetTile abstraction and biome types) and custom systems for combat, inventory, AI, and events. Modding and scripting support are planned.</p>
             <span class="project-arrow">↗</span>
           </div>
           <div class="project-thumb">
@@ -67,7 +72,7 @@
           </div>
           <div class="project-tag">Systems / C++</div>
           <div class="project-title">Rework</div>
-          <p class="project-desc">Job tracker for assignment, training and development of workers in the workspace.</p>
+          <p class="project-desc">A layered desktop application built in C++ with Qt6, SQLite, and CMake, for managing staff scheduling, training, and development. Built for real use in a working kitchen environment, not as a demo. Chose CMake over Qt Visual Studio projects for the build system, and resolved runtime DLL dependency issues through windeployqt integration after the build.</p>
           <span class="project-arrow">↗</span>
         </a>
 
@@ -112,6 +117,11 @@
     <footer>
       <span>© 2026 Wayne Mitchell</span>
       <span>Built for performance and clarity</span>
+      <div class="footer-links">
+        <a href="https://github.com/cjmit18" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="contact-divider"></span>
+        <a href="https://www.linkedin.com/in/wayne-mitchell-14363289/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
     </footer>
   </div>
 </body>
