@@ -272,6 +272,14 @@ nav {
   background: #0d0d0d;
   display: block;
 }
+@media (max-width: 720px) {
+  .thumb-video {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
 
 .thumb-dot {
   width: 40px;
