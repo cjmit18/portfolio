@@ -393,6 +393,15 @@ nav {
   height: 4px;
   border-radius: 50%;
   background: var(--clr-border);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+/* first divider glows with GitHub (the first link) */
+.contact-divider:has(+ .footer-links a:first-child:hover),
+/* second divider glows with LinkedIn (the link after it) */
+.footer-links .contact-divider:has(+ a:hover) {
+  background: var(--clr-accent);
+  box-shadow: 0 0 6px 2px var(--clr-accent);
 }
 
 .page-header {
@@ -528,6 +537,9 @@ footer {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  justify-content: center;
+  
+  
 }
 
 .footer-links {
@@ -585,6 +597,6 @@ footer {
 
   footer {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 }
