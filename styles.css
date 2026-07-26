@@ -422,6 +422,9 @@ nav {
   font-family: var(--ff-display);
   font-size: 20px;
   margin: 12px 0 10px;
+}
+
+.email-address {
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -479,6 +482,7 @@ nav {
   line-height: 1.75;
   font-size: 13px;
 }
+
 
 .contact-grid {
   display: grid;
@@ -543,6 +547,10 @@ footer {
 
   .nav-links {
     gap: 16px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 
   footer {
