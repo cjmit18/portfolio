@@ -422,6 +422,8 @@ nav {
   font-family: var(--ff-display);
   font-size: 20px;
   margin: 12px 0 10px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .card-copy {
