@@ -425,6 +425,9 @@ nav {
 }
 
 .email-address {
+  display: block;
+  width: 100%;
+  text-align: center;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -545,8 +548,18 @@ footer {
     border-top: 0.5px solid var(--clr-border);
   }
 
+  nav {
+    gap: 16px;
+  }
+
+  .nav-name {
+    margin-right: auto;
+  }
+
   .nav-links {
     gap: 16px;
+    margin-left: auto;
+    flex-wrap: wrap;
   }
 
   .contact-grid {
