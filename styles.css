@@ -428,8 +428,16 @@ nav {
   display: block;
   width: 100%;
   text-align: center;
-  overflow-wrap: anywhere;
-  word-break: break-word;
+}
+
+@media (max-width: 720px) {
+  .email-address {
+    text-align: left;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card-copy {
