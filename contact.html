@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Wayne Mitchell about software projects, collaboration, and technical work.">
   <title>Contact | Wayne Mitchell</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,11 +12,11 @@
     <nav>
       <span class="nav-name">Wayne Mitchell</span>
       <ul class="nav-links">
-        <li><a href="index">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
       </ul>
     </nav>
 
@@ -28,9 +29,20 @@
     <section class="contact contact-grid">
       <div class="card contact-card">
         <div class="project-tag">email</div>
-        <div class="card-title email-address">mymail@wayne-mitchell.com</div>
-        <p class="card-copy">Send a message with project details, availability, or any technical questions.</p>
-        <a class="contact-link" href="mailto:mymail@wayne-mitchell.com">Email me</a>
+        <div class="card-title">Send a message</div>
+        <form class="contact-form" id="contact-form" action="/api/contact" method="post">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+          <label class="contact-trap" aria-hidden="true">Website
+            <input name="website" type="text" tabindex="-1" autocomplete="off">
+          </label>
+          <button class="btn-primary" type="submit">Send message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
       </div>
       <div class="card contact-card">
         <div class="project-tag">location</div>
@@ -38,6 +50,30 @@
         <p class="card-copy">Available for employment, remote work, hybrid collaboration, and project-based contracts.</p>
       </div>
     </section>
+
+    <script>
+      const form = document.querySelector('#contact-form');
+      const status = document.querySelector('#form-status');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        status.textContent = 'Sending...';
+
+        try {
+          const response = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(Object.fromEntries(new FormData(form)))
+          });
+          const result = await response.json();
+          if (!response.ok) throw new Error(result.error || 'The message could not be sent.');
+          form.reset();
+          status.textContent = 'Message sent. Thanks for reaching out.';
+        } catch (error) {
+          status.textContent = error.message || 'The message could not be sent.';
+        }
+      });
+    </script>
 
     <footer>
       <span>© 2026 Wayne Mitchell</span>

@@ -1,0 +1,19 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "portfolio",
+	"main": "./worker.js",
+	"compatibility_date": "2026-08-20",
+	"assets": {
+		"directory": ".",
+		"binding": "ASSETS",
+		"run_worker_first": ["/api/*"]
+	},
+	"d1_databases": [
+		{
+			"binding": "CONTACT_DB",
+			"database_name": "wayne-mitchell-contact",
+			"database_id": "ccc318ba-961e-4bc7-bd1e-db23d6ab0a26",
+			"remote": true
+		}
+	]
+}

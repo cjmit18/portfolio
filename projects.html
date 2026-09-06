@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Selected software projects by Wayne Mitchell, including a Python RPG engine, a C++ desktop application, and a custom physics engine.">
   <title>Projects | Wayne Mitchell</title>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -11,8 +12,8 @@
     <nav>
       <span class="nav-name">Wayne Mitchell</span>
       <ul class="nav-links">
-        <li><a href="index">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="projects.html" aria-current="page">Projects</a></li>
         <li><a href="resume.html">Resume</a></li>
         <li><a href="skills.html">Skills</a></li>
         <li><a href="contact.html">Contact</a></li>
@@ -29,7 +30,7 @@
       <div class="project-grid">
         <a class="project-card featured" href="https://github.com/cjmit18/RPG-Make">
           <div>
-            <div class="project-tag">Game Engine / Python</div>
+            <div class="project-meta"><span class="project-tag">Game Engine / Python</span><span class="project-status">In progress</span></div>
             <div class="project-title">Modular RPG Engine</div>
             <p class="project-desc">A modular RPG engine built in Python, using data-oriented design and Design by Contract as guiding principles. Includes a custom ECS, a deferred rendering pipeline, and a customizable physics engine, along with a full Map, Chunk, and Tile hierarchy (with a GetTile abstraction and biome types) and custom systems for combat, inventory, AI, and events. Modding and scripting support are planned.</p>
             <span class="project-arrow">↗</span>
@@ -42,18 +43,18 @@
         </a>
         <a class="project-card" href="rework/index.html">
           <div class="project-thumb" style="margin-bottom:20px;">
-            <video class="thumb-video" src="assets/rework.mp4" autoplay muted loop playsinline></video>
+            <video class="thumb-video" src="assets/rework.mp4" autoplay muted loop playsinline aria-label="Preview of the Rework kitchen management application"></video>
           </div>
-          <div class="project-tag">Systems / C++</div>
+          <div class="project-meta"><span class="project-tag">Systems / C++</span><span class="project-status">Application</span></div>
           <div class="project-title">Rework</div>
           <p class="project-desc">A layered desktop application built in C++ with Qt6, SQLite, and CMake, for managing staff scheduling, training, and development. Built for real use in a working kitchen environment, not as a demo. Chose CMake over Qt Visual Studio projects for the build system, and resolved runtime DLL dependency issues through windeployqt integration after the build.</p>
           <span class="project-arrow">↗</span>
         </a>
         <a class="project-card" href="https://github.com/cjmit18/PhysicsDemo">
           <div class="project-thumb" style="margin-bottom:20px;">
-            <video class="thumb-video" src="assets/rpg-engine-demo.mp4" autoplay muted loop playsinline></video>
+            <video class="thumb-video" src="assets/rpg-engine-demo.mp4" autoplay muted loop playsinline aria-label="Preview of the Physics Engine project"></video>
           </div>
-          <div class="project-tag">Research / C++</div>
+          <div class="project-meta"><span class="project-tag">Research / C++</span><span class="project-status">Prototype</span></div>
           <div class="project-title">Physics Engine</div>
           <p class="project-desc">Custom physics engine with rudimentary ECS and input handling for any number of spheres on screen using rigid body physics and velocity input</p>
           <span class="project-arrow">↗</span>

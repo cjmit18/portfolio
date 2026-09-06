@@ -305,6 +305,26 @@ nav {
   margin-bottom: 10px;
 }
 
+.project-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.project-meta .project-tag {
+  margin-bottom: 0;
+}
+
+.project-status {
+  font-size: 10px;
+  color: var(--clr-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .project-title {
   font-family: var(--ff-display);
   font-size: 22px;
@@ -500,6 +520,19 @@ nav {
   padding: 22px;
 }
 
+.resume-timeline .resume-item {
+  position: relative;
+  border-left: 2px solid var(--clr-accent);
+}
+
+.resume-item-kicker {
+  color: var(--clr-accent);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
 .resume-item-title {
   font-family: var(--ff-display);
   font-size: 16px;
@@ -532,6 +565,54 @@ nav {
   display: flex;
   flex-direction: column;
   gap: 18px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.contact-form label {
+  color: var(--clr-muted);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.contact-form input,
+.contact-form textarea {
+  background: var(--clr-bg);
+  border: 0.5px solid var(--clr-border);
+  border-radius: 2px;
+  color: var(--clr-text);
+  font: inherit;
+  margin-bottom: 8px;
+  padding: 10px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--clr-accent);
+  outline: 1px solid var(--clr-accent);
+}
+
+.contact-form .btn-primary {
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.form-status {
+  min-height: 1.5em;
+  color: var(--clr-muted);
+  font-size: 12px;
+}
+
+.contact-trap {
+  position: absolute;
+  left: -9999px;
 }
 
 footer {
