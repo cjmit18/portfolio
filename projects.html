@@ -1,75 +1,106 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Selected software projects by Wayne Mitchell, including a Python RPG engine, a C++ desktop application, and a custom physics engine.">
+  <meta name="description" content="Selected software projects by Wayne Mitchell: a C++ game engine, the Rework desktop application, the Rally multiplayer web game, and an earlier Python RPG engine.">
   <title>Projects | Wayne Mitchell</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://wayne-mitchell.com/projects">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Wayne Mitchell">
+  <meta property="og:title" content="Projects | Wayne Mitchell">
+  <meta property="og:description" content="Selected software projects by Wayne Mitchell: a C++ game engine, the Rework desktop application, the Rally multiplayer web game, and an earlier Python RPG engine.">
+  <meta property="og:url" content="https://wayne-mitchell.com/projects">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-wrapper">
-    <nav>
-      <span class="nav-name">Wayne Mitchell</span>
+    <nav aria-label="Main">
+      <a class="nav-name" href="/">Wayne Mitchell</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html" aria-current="page">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects" aria-current="page">Projects</a></li>
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="/skills">Skills</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://rally.wayne-mitchell.com">Rally</a></li>
       </ul>
     </nav>
+    <main id="main">
+      <section class="page-header">
+        <div class="section-label">selected work</div>
+        <h1>Projects &amp; systems</h1>
+        <p class="page-intro">Software I've built end to end: a C++ game engine, a layered desktop application, and a live multiplayer web game. Each links to its writeup or source.</p>
+      </section>
 
-    <section class="page-header">
-      <div class="section-label">selected work</div>
-      <h1>Projects & systems</h1>
-      <p class="page-intro">A curated collection of systems, tooling, and engine work built for performance, modularity, and real-time applications.</p>
-    </section>
-
-    <section class="projects">
-      <div class="project-grid">
-        <a class="project-card featured" href="https://github.com/cjmit18/RPG-Make">
-          <div>
-            <div class="project-meta"><span class="project-tag">Game Engine / Python</span><span class="project-status">In progress</span></div>
-            <div class="project-title">Modular RPG Engine</div>
-            <p class="project-desc">A modular RPG engine built in Python, using data-oriented design and Design by Contract as guiding principles. Includes a custom ECS, a deferred rendering pipeline, and a customizable physics engine, along with a full Map, Chunk, and Tile hierarchy (with a GetTile abstraction and biome types) and custom systems for combat, inventory, AI, and events. Modding and scripting support are planned.</p>
-            <span class="project-arrow">↗</span>
+      <section class="projects">
+        <div class="project-grid">
+        <article class="project-card featured no-media" id="rpg-engine">
+          <div class="project-body">
+            <div class="project-meta"><span class="project-tag">Game engine / C++</span><span class="project-status">In progress</span></div>
+            <h3 class="project-title"><a href="/projects#physics-demo">RPG Game Engine (C++)</a></h3>
+            <p class="project-desc">A modular game engine built from scratch in C++ with raylib, covering rendering, combat, inventory, AI behavior, and event systems. It uses a tile-based map (Map, Chunk, Tile) with a clean abstraction for querying world data, and pairs data-oriented design with custom Design by Contract macros to catch invalid state early. Scripting and modding support are planned.</p>
+            <p class="project-stack">C++ · raylib · data-oriented design · Design by Contract</p>
+            <div class="project-actions"><a class="btn-primary btn-sm" href="/projects#physics-demo">Physics demo</a><a class="btn-ghost btn-sm" href="https://github.com/cjmit18/RPG-Make" target="_blank" rel="noopener noreferrer">Earlier Python version</a></div>
           </div>
-          <div class="project-thumb">
-            <div class="thumb-inner">
-              <div class="thumb-dot"></div>
-            </div>
+        </article>
+        <article class="project-card">
+          <div class="project-thumb"><video class="thumb-video" src="/assets/rework.mp4" muted loop playsinline controls preload="none" aria-label="Preview of the Rework desktop application"></video></div>
+          <div class="project-body">
+            <div class="project-meta"><span class="project-tag">Desktop app / C++ · Qt6</span><span class="project-status">In progress</span></div>
+            <h3 class="project-title"><a href="/rework/">Rework</a></h3>
+            <p class="project-desc">A layered desktop app for managing employees, training certifications, and shift assignments in a working kitchen. Built around a greedy constraint-based scheduler that assigns staff to workstations by certification and availability, plus a scored suggestion engine for cross-training.</p>
+            <p class="project-stack">C++ · Qt6 · QML · SQLite · CMake</p>
+            <div class="project-actions"><a class="btn-primary btn-sm" href="/rework/">Project page</a><a class="btn-ghost btn-sm" href="https://github.com/cjmit18/Rework" target="_blank" rel="noopener noreferrer">Source</a></div>
           </div>
-        </a>
-        <a class="project-card" href="rework/index.html">
-          <div class="project-thumb" style="margin-bottom:20px;">
-            <video class="thumb-video" src="assets/rework.mp4" autoplay muted loop playsinline aria-label="Preview of the Rework kitchen management application"></video>
+        </article>
+        <article class="project-card">
+          <div class="project-body">
+            <div class="project-meta"><span class="project-tag">Web game / JavaScript</span><span class="project-status">Live</span></div>
+            <h3 class="project-title"><a href="https://rally.wayne-mitchell.com">Rally</a></h3>
+            <p class="project-desc">A live multiplayer Rock Paper Scissors game with accounts, room codes, a leaderboard, and a bot with three difficulty levels, running on Cloudflare Workers.</p>
+            <p class="project-stack">JavaScript · Cloudflare Workers</p>
+            <div class="project-actions"><a class="btn-primary btn-sm" href="https://rally.wayne-mitchell.com">Play</a></div>
           </div>
-          <div class="project-meta"><span class="project-tag">Systems / C++</span><span class="project-status">Application</span></div>
-          <div class="project-title">Rework</div>
-          <p class="project-desc">A layered desktop application built in C++ with Qt6, SQLite, and CMake, for managing staff scheduling, training, and development. Built for real use in a working kitchen environment, not as a demo. Chose CMake over Qt Visual Studio projects for the build system, and resolved runtime DLL dependency issues through windeployqt integration after the build.</p>
-          <span class="project-arrow">↗</span>
-        </a>
-        <a class="project-card" href="https://github.com/cjmit18/PhysicsDemo">
-          <div class="project-thumb" style="margin-bottom:20px;">
-            <video class="thumb-video" src="assets/rpg-engine-demo.mp4" autoplay muted loop playsinline aria-label="Preview of the Physics Engine project"></video>
+        </article>
+        <article class="project-card">
+          <div class="project-body">
+            <div class="project-meta"><span class="project-tag">Game engine / Python</span><span class="project-status">Archived</span></div>
+            <h3 class="project-title"><a href="https://github.com/cjmit18/RPG-Make" target="_blank" rel="noopener noreferrer">Game Sys (Python RPG engine)</a></h3>
+            <p class="project-desc">An earlier Python RPG engine: characters built from JSON templates, items and equipment, combat, progression, and a pytest suite. Groundwork for the C++ engine.</p>
+            <p class="project-stack">Python · pytest · JSON</p>
+            <div class="project-actions"><a class="btn-primary btn-sm" href="https://github.com/cjmit18/RPG-Make" target="_blank" rel="noopener noreferrer">Source</a></div>
           </div>
-          <div class="project-meta"><span class="project-tag">Research / C++</span><span class="project-status">Prototype</span></div>
-          <div class="project-title">Physics Engine</div>
-          <p class="project-desc">Custom physics engine with rudimentary ECS and input handling for any number of spheres on screen using rigid body physics and velocity input</p>
-          <span class="project-arrow">↗</span>
-        </a> 
-      </div>
-    </section>
+        </article>
+        <article class="project-card" id="physics-demo">
+          <div class="project-thumb"><video class="thumb-video" src="/assets/rpg-engine-demo.mp4" muted loop playsinline controls preload="none" aria-label="Demo of the physics engine with circular entities colliding"></video></div>
+          <div class="project-body">
+            <div class="project-meta"><span class="project-tag">Physics / C++</span><span class="project-status">Prototype</span></div>
+            <h3 class="project-title"><a href="https://github.com/cjmit18/PhysicsDemo" target="_blank" rel="noopener noreferrer">Physics Demo</a></h3>
+            <p class="project-desc">A 2D physics demo with circular entities on raylib: gravity, bounce, friction, and pairwise collision resolution using positional correction and impulses, with per-entity keyboard control. An early building block for the engine.</p>
+            <p class="project-stack">C++ · raylib</p>
+            <div class="project-actions"><a class="btn-primary btn-sm" href="https://github.com/cjmit18/PhysicsDemo" target="_blank" rel="noopener noreferrer">Source</a></div>
+          </div>
+        </article>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <span>© 2026 Wayne Mitchell</span>
-      <span>Built for performance and clarity</span>
-      <span class="contact-divider"></span>
+      <span class="footer-sep" aria-hidden="true"></span>
+      <span>Naperville, IL</span>
+      <span class="footer-sep" aria-hidden="true"></span>
       <div class="footer-links">
         <a href="https://github.com/cjmit18" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="contact-divider"></span>
         <a href="https://www.linkedin.com/in/wayne-mitchell-14363289/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:mymail@wayne-mitchell.com">Email</a>
       </div>
     </footer>
   </div>

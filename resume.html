@@ -1,83 +1,120 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Wayne Mitchell's education, technical skills, and professional certifications in computer science and software development.">
+  <meta name="description" content="Wayne Mitchell's resume: C++ and Python systems programming, projects, work experience at Cresco Labs and Amazon, education at Lewis University, and certifications.">
   <title>Resume | Wayne Mitchell</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://wayne-mitchell.com/resume">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Wayne Mitchell">
+  <meta property="og:title" content="Resume | Wayne Mitchell">
+  <meta property="og:description" content="Wayne Mitchell's resume: C++ and Python systems programming, projects, work experience at Cresco Labs and Amazon, education at Lewis University, and certifications.">
+  <meta property="og:url" content="https://wayne-mitchell.com/resume">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-wrapper">
-    <nav>
-      <span class="nav-name">Wayne Mitchell</span>
+    <nav aria-label="Main">
+      <a class="nav-name" href="/">Wayne Mitchell</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html" aria-current="page">Resume</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/resume" aria-current="page">Resume</a></li>
+        <li><a href="/skills">Skills</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://rally.wayne-mitchell.com">Rally</a></li>
       </ul>
     </nav>
+    <main id="main">
+      <section class="page-header">
+        <div class="section-label">resume</div>
+        <h1>Resume</h1>
+        <p class="page-intro">Systems programming in C++, C, and Python, a B.S. in Computer Science in progress, and a background in process improvement and operations.</p>
+      </section>
 
-    <section class="page-header">
-      <div class="section-label">professional summary</div>
-      <h1>Resume</h1>
-      <p class="page-intro">A concise overview of experience, technical strengths, and achievements.</p>
-    </section>
+      <section class="resume-overview">
+        <div class="btn-group">
+          <a class="btn-primary" href="/resume.pdf" target="_blank" rel="noopener">Download PDF</a>
+        </div>
+      </section>
 
-    <section class="resume-overview">
-      <div class="btn-group">
-        <a class="btn-primary" href="resume.pdf" target="_blank">Download PDF</a>
-      </div>
-    </section>
+      <section class="resume-block">
+        <h2 class="section-label">summary</h2>
+        <ul class="resume-list wide">
+          <li><strong>Systems programming:</strong> hands-on experience in C++, C, Python, and JavaScript, focused on system-level programming and software architecture.</li>
+          <li><strong>Projects:</strong> builds modular, layered applications from scratch, including a desktop staff management system (C++, Qt6, SQLite) and a custom game engine covering rendering, AI behavior, and event systems.</li>
+          <li><strong>Technical practice:</strong> applies data structures, memory management, and design by contract principles to write maintainable, testable code.</li>
+          <li><strong>Leadership:</strong> led 5S implementation across a 2 million square foot facility, reducing downtime by 20%.</li>
+        </ul>
+      </section>
 
-    <section class="resume-grid">
-      <div class="resume-section resume-timeline">
-        <div class="resume-item">
-          <div class="resume-item-kicker">Current</div>
-          <div class="resume-item-title">Education</div>
-          <div class="resume-item-meta">Lewis University</div>
-          <div class="resume-item-meta">B.S. in Computer Science</div>
-          <p class="resume-item-desc">Currently pursuing a B.S. in Computer Science with a minor in Artificial Intelligence, expected to graduate in 2028. Coursework includes Artificial Intelligence, Operating Systems, and Cyber Security.</p>
+      <section class="resume-block">
+        <h2 class="section-label">projects</h2>
+        <div class="resume-section">
+          <div class="resume-item"><div class="resume-item-kicker">In progress</div><h3 class="resume-item-title">RPG Game Engine (C++)</h3><div class="resume-item-meta">Personal project</div><ul class="resume-list"><li>Building a modular game engine from scratch in C++, covering rendering, combat, inventory, AI behavior, and event systems.</li><li>Designing a tile-based map architecture (Map, Chunk, Tile) with a clean abstraction for querying world data.</li><li>Applying data-oriented design alongside custom Design by Contract macros to improve performance and catch invalid state early.</li><li>Planning scripting and modding support so gameplay systems can be extended without changing engine code.</li></ul></div>
+          <div class="resume-item"><div class="resume-item-kicker">Live</div><h3 class="resume-item-title">Personal Portfolio Website</h3><div class="resume-item-meta"><a href="/">wayne-mitchell.com</a></div><ul class="resume-list"><li>Designed and deployed a responsive portfolio (HTML, CSS, JavaScript) with project writeups, architecture summaries, and design decisions.</li><li>Built a live interactive Rock Paper Scissors game, <a href="https://rally.wayne-mitchell.com">Rally</a>, demonstrating DOM manipulation, event handling, and state management.</li><li>Structured semantic HTML with accessible navigation, checked across desktop and mobile viewports.</li></ul></div>
         </div>
-        <div class="resume-item">
-          <div class="resume-item-kicker">Previous</div>
-          <div class="resume-item-meta">Joliet Junior College</div>
-          <div class="resume-item-meta">A.A.S. in Computer Programming</div>
-          <p class="resume-item-desc">Graduated with honors. Coursework included algorithms, programming languages, software architecture, and systems design.</p>
+      </section>
+
+      <section class="resume-block">
+        <h2 class="section-label">work experience</h2>
+        <div class="resume-section">
+          <div class="resume-item"><div class="resume-item-kicker">Jan 2025 to Present</div><h3 class="resume-item-title">Kitchen Agent</h3><div class="resume-item-meta">Cresco Labs, Joliet, IL</div><ul class="resume-list"><li>Produce high-quality small batch products under strict regulatory compliance.</li><li>Maintain meticulous batch and process records for full traceability.</li><li>Collaborate with R&amp;D and Quality teams to test and refine product formulations.</li><li>Standardize production workflows, improving consistency and reducing rework.</li></ul></div>
+          <div class="resume-item"><div class="resume-item-kicker">Dec 2021 to Apr 2024</div><h3 class="resume-item-title">5S Team Lead</h3><div class="resume-item-meta">Amazon, Channahon, IL</div><ul class="resume-list"><li>Led 5S implementation across a 2 million square foot facility, boosting efficiency and reducing downtime by 20%.</li><li>Trained staff on organization, safety, and process compliance, reducing workplace injuries and increasing productivity.</li><li>Conducted workflow audits and optimized supply replenishment to maintain productivity.</li><li>Streamlined facility workstation layouts to enhance safety and speed.</li></ul></div>
+          <div class="resume-item"><div class="resume-item-kicker">Aug 2021 to Dec 2021, Apr 2024 to Mar 2025</div><h3 class="resume-item-title">Warehouse Associate</h3><div class="resume-item-meta">Amazon, Channahon, IL</div><ul class="resume-list"><li>Stowed items and scanned them into inventory.</li><li>Learned all 6 PIT-operated machines.</li><li>Cross-trained into various departments and assisted based on business needs.</li></ul></div>
         </div>
-        <div class="resume-item">
-          <div class="resume-item-kicker">Earlier</div>
-          <div class="resume-item-meta">Kendall College at National Louis University</div>
-          <div class="resume-item-meta">A.A.S. in Culinary Arts</div>
-          <p class="resume-item-desc">Graduated with a focus on kitchen management, food safety, and culinary techniques.</p>
+      </section>
+
+      <section class="resume-grid">
+        <div class="resume-section">
+          <h2 class="section-label">education</h2>
+          <div class="resume-item"><div class="resume-item-kicker">Expected May 2028</div><h3 class="resume-item-title">B.S. in Computer Science</h3><div class="resume-item-meta">Lewis University, Romeoville, IL</div></div>
+          <div class="resume-item"><div class="resume-item-kicker">May 2026</div><h3 class="resume-item-title">A.A.S. in Computer Programming</h3><div class="resume-item-meta">Joliet Junior College, Joliet, IL</div><div class="resume-item-meta">GPA 3.4 · Graduated with honors</div></div>
+          <div class="resume-item"><div class="resume-item-kicker">September 2024</div><h3 class="resume-item-title">A.A.S. in Culinary Arts</h3><div class="resume-item-meta">Kendall College at National Louis University, Chicago, IL</div><div class="resume-item-meta">GPA 3.0</div></div>
         </div>
-      </div>
-      <div class="resume-section resume-timeline">
-        <div class="resume-item">
-          <div class="resume-item-kicker">2025-2028</div>
-          <div class="resume-item-title">Technical Skills</div>
-          <p class="resume-item-desc">C++, Python, JavaScript, SQL, Linux, Git, CMake, data structures, networking, AI/ML, software architecture, systems design, statistics, Raylib, data analytics, and web development.</p>
+        <div class="resume-section">
+          <h2 class="section-label">technical skills</h2>
+          <div class="resume-item"><h3 class="resume-item-title">Languages</h3><p class="resume-item-desc">C++, C, Python, Java, JavaScript, SQL</p></div>
+          <div class="resume-item"><h3 class="resume-item-title">Systems &amp; architecture</h3><p class="resume-item-desc">Data structures, operating systems, systems analysis and design, networking fundamentals, memory management, Design by Contract, modular architecture, data-oriented design</p></div>
+          <div class="resume-item"><h3 class="resume-item-title">Tools</h3><p class="resume-item-desc">Git, CMake, Qt6, SQLite, Google Test, JSON, raylib</p></div>
+          <div class="resume-item"><h3 class="resume-item-title">Web, data &amp; productivity</h3><p class="resume-item-desc">HTML, CSS, JavaScript; data analytics, R Studio, advanced statistics, MSSQL; Microsoft Office</p></div>
         </div>
-        <div class="resume-item">
-          <div class="resume-item-kicker">2023-2028</div>
-          <div class="resume-item-title">Certifications</div>
-          <p class="resume-item-desc">ServSafe Food Manager Certificate (2023-2028)</p>
-          <p class="resume-item-desc">ServSafe Food Allergen Certificate (2025-2028)</p>
-          <p class="resume-item-desc">American Red Cross First Aid/CPR/AED Certification (2025-2027)</p>
+      </section>
+
+      <section class="resume-grid">
+        <div class="resume-section">
+          <h2 class="section-label">certifications</h2>
+          <div class="resume-item"><div class="resume-item-kicker">Expires June 2028</div><h3 class="resume-item-title">ServSafe Food Protection Manager</h3><div class="resume-item-meta">NRA</div></div>
+          <div class="resume-item"><div class="resume-item-kicker">Expires October 2028</div><h3 class="resume-item-title">ServSafe Allergens</h3><div class="resume-item-meta">NRA</div></div>
+          <div class="resume-item"><div class="resume-item-kicker">Expires March 2027</div><h3 class="resume-item-title">Adult First Aid/CPR/AED</h3><div class="resume-item-meta">Red Cross</div></div>
+          <div class="resume-item"><div class="resume-item-kicker">In progress, expected December 2026</div><h3 class="resume-item-title">CompTIA Network+</h3></div>
+          <div class="resume-item"><div class="resume-item-kicker">In progress, expected October 2026</div><h3 class="resume-item-title">LPI Linux Essentials</h3></div>
         </div>
-      </div>
-    </section>
+        <div class="resume-section">
+          <h2 class="section-label">leadership &amp; volunteering</h2>
+          <div class="resume-item"><div class="resume-item-kicker">2026 to Present</div><h3 class="resume-item-title">Volunteer</h3><div class="resume-item-meta">Northern Illinois Food Bank, Joliet, IL</div><p class="resume-item-desc">Assisted with food sorting, packaging, and distribution to support community members in need.</p></div>
+          <div class="resume-item"><div class="resume-item-kicker">August 2026 to Present</div><h3 class="resume-item-title">Member</h3><div class="resume-item-meta">Lewis University Cybersecurity Club, Romeoville, IL</div></div>
+          <div class="resume-item"><div class="resume-item-kicker">March 2025 to Present</div><h3 class="resume-item-title">Associate Safety Committee Member</h3><div class="resume-item-meta">Cresco Labs, Joliet, IL</div></div>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <span>© 2026 Wayne Mitchell</span>
-      <span>Built for performance and clarity</span>
-      <span class="contact-divider"></span>
+      <span class="footer-sep" aria-hidden="true"></span>
+      <span>Naperville, IL</span>
+      <span class="footer-sep" aria-hidden="true"></span>
       <div class="footer-links">
         <a href="https://github.com/cjmit18" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="contact-divider"></span>
         <a href="https://www.linkedin.com/in/wayne-mitchell-14363289/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:mymail@wayne-mitchell.com">Email</a>
       </div>
     </footer>
   </div>

@@ -1,11 +1,22 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Wayne Mitchell builds engine tooling, real-time systems, and practical software in C++, Python, and JavaScript.">
-  <title>Wayne Mitchell | Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Wayne Mitchell is a computer science student and software engineer building systems in C++ and Python: a custom game engine, a Qt6 desktop app, and a live web game.">
+  <title>Wayne Mitchell | Software Engineer</title>
+  <link rel="canonical" href="https://wayne-mitchell.com/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Wayne Mitchell">
+  <meta property="og:title" content="Wayne Mitchell | Software Engineer">
+  <meta property="og:description" content="Wayne Mitchell is a computer science student and software engineer building systems in C++ and Python: a custom game engine, a Qt6 desktop app, and a live web game.">
+  <meta property="og:url" content="https://wayne-mitchell.com/">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap">
+  <link rel="stylesheet" href="/styles.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -14,19 +25,17 @@
         "@type": "Person",
         "name": "Wayne Mitchell",
         "url": "https://wayne-mitchell.com/",
-        "sameAs": [
-          "https://github.com/cjmit18",
-          "https://www.linkedin.com/in/wayne-mitchell-14363289/"
-        ],
-        "knowsAbout": ["C++", "Python", "JavaScript", "AI/ML", "Real-time systems"]
+        "sameAs": ["https://github.com/cjmit18", "https://www.linkedin.com/in/wayne-mitchell-14363289/"],
+        "alumniOf": "Lewis University",
+        "knowsAbout": ["C++", "C", "Python", "JavaScript", "Qt6", "SQLite", "Systems programming", "Software architecture"]
       },
       {
         "@type": "ItemList",
         "name": "Selected projects",
         "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Modular RPG Engine", "url": "https://github.com/cjmit18/RPG-Make" },
+          { "@type": "ListItem", "position": 1, "name": "RPG Game Engine (C++)", "url": "https://wayne-mitchell.com/projects" },
           { "@type": "ListItem", "position": 2, "name": "Rework", "url": "https://wayne-mitchell.com/rework/" },
-          { "@type": "ListItem", "position": 3, "name": "Physics Engine", "url": "https://github.com/cjmit18/PhysicsDemo" }
+          { "@type": "ListItem", "position": 3, "name": "Rally", "url": "https://rally.wayne-mitchell.com" }
         ]
       }
     ]
@@ -34,125 +43,101 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-wrapper">
-    <nav>
-      <span class="nav-name">Wayne Mitchell</span>
+    <nav aria-label="Main">
+      <a class="nav-name" href="/">Wayne Mitchell</a>
       <ul class="nav-links">
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="https://rally.wayne-mitchell.com">Rock Paper Scissors</a></li>
-        
+        <li><a href="/" aria-current="page">Home</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="/skills">Skills</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://rally.wayne-mitchell.com">Rally</a></li>
       </ul>
     </nav>
+    <main id="main">
+      <section class="hero">
+        <div class="hero-tag">open to software engineering roles</div>
+        <h1>Software<br>engineer &amp;<br><em>builder</em></h1>
+        <p class="hero-sub">I write systems-level software in C++ and Python: a layered desktop app, a custom game engine, and a live web game. I build for real use, then document the decisions behind it.</p>
+        <div class="hero-cta">
+          <a class="btn-primary" href="/projects">View projects ↗</a>
+          <a class="btn-ghost" href="/resume.pdf">Download resume</a>
+        </div>
+      </section>
 
-    <section class="hero">
-      <div class="hero-tag">available for projects</div>
-      <h1>Software<br>engineer &amp;<br><em>builder</em></h1>
-      <p class="hero-sub">I build systems that hold up under real, ongoing use, not just demos. Currently focused on engine architecture, rendering, and real-time systems.</p>
-      <div class="hero-cta">
-        <a class="btn-primary" href="projects.html">view projects ↗</a>
-        <a class="btn-ghost" href="resume.html">download resume</a>
-      </div>
-    </section>
+      <section class="about">
+        <h2 class="section-label">about</h2>
+        <p class="about-copy">I'm completing a B.S. in Computer Science at Lewis University (expected May 2028), after an A.A.S. in Computer Programming from Joliet Junior College, where I graduated with honors, and an A.A.S. in Culinary Arts from Kendall College. Before software I led 5S implementation across a 2 million square foot Amazon facility and cut downtime by 20%. That background is why I care about code that holds up in daily use, not just in a demo.</p>
+      </section>
 
-    <section class="about">
-      <div class="section-label">about</div>
-      <p class="about-copy">I'm working toward a B.S. in Computer Science at Lewis University, set to finish in 2028. Before that I completed an A.A.S. in Computer Programming at Joliet Junior College, graduating with honors, 
-        and an A.A.S. in Culinary Arts at Kendall College. That path from culinary work to systems programming is part of why I build the way I do. I care about software that holds up under real, ongoing use, not just software 
-        that works in a demo. I'm also looking at the Fast Track option toward an M.S. in Computer Science at Lewis.</p>
-    </section>
+      <section class="facts" aria-label="Highlights">
+        <div class="fact"><div class="fact-num">C++ · Qt6</div><div class="fact-label">Layered desktop app: Rework</div></div>
+        <div class="fact"><div class="fact-num">Live</div><div class="fact-label">Rally, a multiplayer web game</div></div>
+        <div class="fact"><div class="fact-num">20%</div><div class="fact-label">Downtime cut leading 5S at a 2M sq ft facility</div></div>
+      </section>
 
-    <div class="stats">
-      <div class="stat">
-        <div class="stat-num">2+</div>
-        <div class="stat-label">years building</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Completed projects</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">2</div>
-        <div class="stat-label">open source repos</div>
-      </div>
-    </div>
-
-    <section class="projects">
-      <div class="section-label">selected work</div>
-      <div class="project-grid">
-        <a class="project-card featured" href="https://github.com/cjmit18/RPG-Make">
-          <div>
-            <div class="project-meta"><span class="project-tag">engine / python</span><span class="project-status">In progress</span></div>
-            <div class="project-title">Modular RPG Engine</div>
-            <p class="project-desc">A modular RPG engine built in Python, using data-oriented design and Design by Contract as guiding principles. Includes a custom ECS, a deferred rendering pipeline, and a customizable physics engine, along with a full Map, Chunk, and Tile hierarchy (with a GetTile abstraction and biome types) and custom systems for combat, inventory, AI, and events. Modding and scripting support are planned.</p>
-            <span class="project-arrow">↗</span>
+      <section class="projects">
+        <h2 class="section-label">selected work</h2>
+        <div class="project-grid">
+        <article class="project-card featured no-media">
+          <div class="project-body">
+            <div class="project-meta"><span class="project-tag">Game engine / C++</span><span class="project-status">In progress</span></div>
+            <h3 class="project-title"><a href="/projects#rpg-engine">RPG Game Engine</a></h3>
+            <p class="project-desc">A modular C++ and raylib engine with a tile-based world, combat, inventory, AI, and events.</p>
+            <div class="project-actions"><a class="btn-primary btn-sm" href="/projects#rpg-engine">Details</a></div>
           </div>
-          <div class="project-thumb">
-            <div class="thumb-inner">
-              <div class="thumb-dot"></div>
-            </div>
+        </article>
+        <article class="project-card">
+          <div class="project-body">
+            <div class="project-meta"><span class="project-tag">Desktop app / C++ · Qt6</span><span class="project-status">In progress</span></div>
+            <h3 class="project-title"><a href="/rework/">Rework</a></h3>
+            <p class="project-desc">Staff scheduling and training tracker with a constraint-based assignment engine.</p>
+            <div class="project-actions"><a class="btn-primary btn-sm" href="/rework/">Project page</a><a class="btn-ghost btn-sm" href="https://github.com/cjmit18/Rework" target="_blank" rel="noopener noreferrer">Source</a></div>
           </div>
-        </a>
-
-        <a class="project-card" href="rework/index.html">
-          <div class="project-thumb" style="margin-bottom:20px;">
-            <video class="thumb-video" src="assets/rework.mp4" autoplay muted loop playsinline aria-label="Preview of the Rework kitchen management application"></video>
-
+        </article>
+        <article class="project-card">
+          <div class="project-body">
+            <div class="project-meta"><span class="project-tag">Web game / JavaScript</span><span class="project-status">Live</span></div>
+            <h3 class="project-title"><a href="https://rally.wayne-mitchell.com">Rally</a></h3>
+            <p class="project-desc">Multiplayer Rock Paper Scissors with rooms, a bot, and a leaderboard.</p>
+            <div class="project-actions"><a class="btn-primary btn-sm" href="https://rally.wayne-mitchell.com">Play</a></div>
           </div>
-          <div class="project-meta"><span class="project-tag">Systems / C++</span><span class="project-status">Application</span></div>
-          <div class="project-title">Rework</div>
-          <p class="project-desc">A layered desktop application built in C++ with Qt6, SQLite, and CMake, for managing staff scheduling, training, and development. Built for real use in a working kitchen environment, not as a demo. Chose CMake over Qt Visual Studio projects for the build system, and resolved runtime DLL dependency issues through windeployqt integration after the build.</p>
-          <span class="project-arrow">↗</span>
-        </a>
+        </article>
+        </div>
+        <p class="more-link"><a href="/projects">All projects, including earlier work →</a></p>
+      </section>
 
-        <a class="project-card" href="https://github.com/cjmit18/PhysicsDemo">
-          <div class="project-thumb" style="margin-bottom:20px;">
-          <video class="thumb-video" src="assets/rpg-engine-demo.mp4" autoplay muted loop playsinline aria-label="Preview of the Physics Engine project"></video>
-          </div>
-          <div class="project-meta"><span class="project-tag">Research / C++</span><span class="project-status">Prototype</span></div>
-          <div class="project-title">Physics Engine</div>
-          <p class="project-desc">Custom physics engine with rudimentary ECS and input handling for any number of spheres on screen using rigid body physics and velocity input</p>
-          <span class="project-arrow">↗</span>
-        </a>
-      </div>
-    </section>
+      <section class="skills">
+        <h2 class="section-label">technologies</h2>
+        <div class="skill-list">
+          <span class="skill-pill">C++</span><span class="skill-pill">C</span><span class="skill-pill">Python</span><span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">SQL</span><span class="skill-pill">Qt6</span><span class="skill-pill">SQLite</span><span class="skill-pill">CMake</span>
+          <span class="skill-pill">raylib</span><span class="skill-pill">Git</span><span class="skill-pill">Data Structures</span>
+        </div>
+        <p class="more-link"><a href="/skills">Full skills list →</a></p>
+      </section>
 
-    <section class="skills">
-      <div class="section-label">technologies</div>
-      <div class="skill-list">
-        <span class="skill-pill">C++</span>
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">JavaScript</span>
-        <span class="skill-pill">AI / ML</span>
-        <span class="skill-pill">Algorithms</span>
-        <span class="skill-pill">Data Structures</span>
-        <span class="skill-pill">Git</span>
-        <span class="skill-pill">Linux</span>
-        <span class="skill-pill">SQL</span>
-      </div>
-    </section>
-
-    <section class="contact">
-      <h2>Let’s build something bold together.</h2>
-      <p>Reach out if you'd like to collaborate on engine tooling, AI systems, or real-time software.</p>
-      <div class="contact-links">
-        <a class="contact-link" href="contact.html">contact page</a>
-        <span class="contact-divider"></span>
-        <a class="contact-link" href="mailto:mymail@wayne-mitchell.com">mymail@wayne-mitchell.com</a>
-      </div>
-    </section>
+      <section class="contact">
+        <h2>Get in touch</h2>
+        <p>Hiring, collaborating, or curious about a project? Send a message or email me directly.</p>
+        <div class="hero-cta center">
+          <a class="btn-primary" href="/contact">Contact me</a>
+          <a class="btn-ghost" href="mailto:mymail@wayne-mitchell.com">mymail@wayne-mitchell.com</a>
+        </div>
+      </section>
+    </main>
 
     <footer>
       <span>© 2026 Wayne Mitchell</span>
-      <span>Built for performance and clarity</span>
-      <span class="contact-divider"></span>
+      <span class="footer-sep" aria-hidden="true"></span>
+      <span>Naperville, IL</span>
+      <span class="footer-sep" aria-hidden="true"></span>
       <div class="footer-links">
         <a href="https://github.com/cjmit18" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="contact-divider"></span>
         <a href="https://www.linkedin.com/in/wayne-mitchell-14363289/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:mymail@wayne-mitchell.com">Email</a>
       </div>
     </footer>
   </div>

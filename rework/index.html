@@ -1,15 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StationIQ - Planning Document</title>
-<link rel="stylesheet" href="./styles.css">
-<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rework is a layered C++ and Qt6 desktop app for kitchen staff scheduling and training, with a constraint-based assignment engine and SQLite persistence.">
+  <title>Rework | Wayne Mitchell</title>
+  <link rel="canonical" href="https://wayne-mitchell.com/rework/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Wayne Mitchell">
+  <meta property="og:title" content="Rework | Wayne Mitchell">
+  <meta property="og:description" content="Rework is a layered C++ and Qt6 desktop app for kitchen staff scheduling and training, with a constraint-based assignment engine and SQLite persistence.">
+  <meta property="og:url" content="https://wayne-mitchell.com/rework/">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<div id="root"></div>
-<script src="./app.compiled.js"></script>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="site-wrapper">
+    <nav aria-label="Main">
+      <a class="nav-name" href="/">Wayne Mitchell</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects" aria-current="page">Projects</a></li>
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="/skills">Skills</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://rally.wayne-mitchell.com">Rally</a></li>
+      </ul>
+    </nav>
+    <main id="main">
+      <section class="page-header">
+        <div class="section-label">project · desktop app</div>
+        <h1>Rework</h1>
+        <p class="page-intro">A layered C++ and Qt6 desktop application for managing employees, training certifications, and shift assignments in a working kitchen.</p>
+      </section>
+
+      <section class="project-detail">
+        <div class="project-actions">
+          <a class="btn-primary btn-sm" href="https://github.com/cjmit18/Rework" target="_blank" rel="noopener noreferrer">Source on GitHub</a>
+          <a class="btn-ghost btn-sm" href="/projects">All projects</a>
+        </div>
+        <div class="project-thumb wide"><video class="thumb-video" src="/assets/rework.mp4" muted loop playsinline controls preload="none" aria-label="Preview of the Rework desktop application"></video></div>
+        <dl class="facts-list">
+          <div><dt>Status</dt><dd>In progress</dd></div>
+          <div><dt>Stack</dt><dd>C++, Qt6 (QML), SQLite, CMake</dd></div>
+          <div><dt>Role</dt><dd>Sole developer: architecture, build system, packaging</dd></div>
+        </dl>
+      </section>
+
+      <section class="prose">
+        <h2>The problem</h2>
+        <p>In a production kitchen, the schedule is a puzzle: each workstation needs enough people certified for it, and certifications expire. Rework tracks employees, stations, and training records in one place and proposes daily assignments instead of working them out by hand.</p>
+
+        <h2>Architecture</h2>
+        <p>The app is split into four layers so each can change without touching the others:</p>
+        <ul>
+          <li><strong>UI.</strong> A QML front end (login, main, and detail pages) talking to a C++ backend object.</li>
+          <li><strong>Services.</strong> Business rules for employees, training, and scheduling, such as validation, certification progression, and conflict detection.</li>
+          <li><strong>Repositories.</strong> One per entity (employees, stations, training records, schedules, assignments), the only code that issues queries.</li>
+          <li><strong>Database.</strong> SQLite through Qt SQL, with a versioned schema.</li>
+        </ul>
+
+        <h2>Assignment engine</h2>
+        <p>Assignments come from a greedy constraint-satisfaction pass: stations are sorted by priority, then trainers are placed first, certified staff next, and people still in training last. Understaffed stations and stations with no certified trainer are flagged rather than failing silently.</p>
+
+        <h2>Suggestion engine</h2>
+        <p>Staff left unassigned are a chance to cross-train. A scored suggestion engine finds the stations each person is closest to being certified for and ranks suggestions by coverage deficit and trainer availability.</p>
+
+        <h2>Build and packaging</h2>
+        <p>I chose CMake over Qt's Visual Studio project format so the build is the same on every machine, and automated Windows packaging with <code>windeployqt</code> to resolve runtime DLL dependencies after the build.</p>
+
+        <h2>Where it stands</h2>
+        <p>The QML interface and the core data models are in the repository. The assignment and suggestion engines are the current focus. The login screen is a mock until backend authentication lands.</p>
+      </section>
+    </main>
+
+    <footer>
+      <span>© 2026 Wayne Mitchell</span>
+      <span class="footer-sep" aria-hidden="true"></span>
+      <span>Naperville, IL</span>
+      <span class="footer-sep" aria-hidden="true"></span>
+      <div class="footer-links">
+        <a href="https://github.com/cjmit18" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/wayne-mitchell-14363289/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:mymail@wayne-mitchell.com">Email</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

@@ -1,86 +1,89 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Wayne Mitchell's technical skills across C++, Python, JavaScript, systems design, networking, and software architecture.">
+  <meta name="description" content="Wayne Mitchell's skills: C++, C, Python, JavaScript, SQL, Qt6, SQLite, CMake, raylib, data structures, and software architecture, tied to the projects that use them.">
   <title>Skills | Wayne Mitchell</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://wayne-mitchell.com/skills">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Wayne Mitchell">
+  <meta property="og:title" content="Skills | Wayne Mitchell">
+  <meta property="og:description" content="Wayne Mitchell's skills: C++, C, Python, JavaScript, SQL, Qt6, SQLite, CMake, raylib, data structures, and software architecture, tied to the projects that use them.">
+  <meta property="og:url" content="https://wayne-mitchell.com/skills">
+  <meta name="twitter:card" content="summary">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=DM+Serif+Display:ital@0;1&display=swap">
+  <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <div class="site-wrapper">
-    <nav>
-      <span class="nav-name">Wayne Mitchell</span>
+    <nav aria-label="Main">
+      <a class="nav-name" href="/">Wayne Mitchell</a>
       <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="resume.html">Resume</a></li>
-        <li><a href="skills.html" aria-current="page">Skills</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/projects">Projects</a></li>
+        <li><a href="/resume">Resume</a></li>
+        <li><a href="/skills" aria-current="page">Skills</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://rally.wayne-mitchell.com">Rally</a></li>
       </ul>
     </nav>
+    <main id="main">
+      <section class="page-header">
+        <div class="section-label">skills</div>
+        <h1>Skills &amp; tools</h1>
+        <p class="page-intro">What I work with, matched to the projects that use it. Everything here also appears on my resume.</p>
+      </section>
 
-    <section class="page-header">
-      <div class="section-label">expertise</div>
-      <h1>Skills & tools</h1>
-      <p class="page-intro">Technical strengths organized by languages, systems, tooling, and software architecture.</p>
-    </section>
-
-    <section class="skills">
-      <div class="skill-list">
-        <span class="skill-pill">C++</span>
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">JavaScript</span>
-        <span class="skill-pill">AI / ML</span>
-        <span class="skill-pill">SQL</span>
-        <span class="skill-pill">Linux</span>
-        <span class="skill-pill">Git</span>
-        <span class="skill-pill">CMake</span>
-        <span class="skill-pill">Networking</span>
-        <span class="skill-pill">Multithreading</span>
-        <span class="skill-pill">Data Structures</span>
-        <span class="skill-pill">Software Architecture</span>
-        <span class="skill-pill">Systems Design</span>
-        <span class="skill-pill">Raylib</span>
-        <span class="skill-pill">Data Analytics</span>
-        <span class="skill-pill">Web Development</span>
-      </div>
-    </section>
-
-    <section class="projects">
-      <div class="section-label">skill clusters</div>
-      <div class="card-grid">
-        <div class="card">
-          <div class="project-tag">Core languages</div>
-          <div class="card-title">C++, Python, JavaScript</div>
-          <p class="card-copy">Fast, idiomatic code with strong systems-level knowledge, automation scripts, and frontend integration.</p>
+      <section class="projects">
+        <div class="card-grid">
+          <div class="card">
+            <div class="project-tag">Languages</div>
+            <h3 class="card-title">C++, C, Python, Java, JavaScript, SQL</h3>
+            <p class="card-copy">C++ is my main language: the <a href="/projects#rpg-engine">game engine</a> and <a href="/rework/">Rework</a> are both C++. Python powers the <a href="https://github.com/cjmit18/RPG-Make">earlier RPG engine</a>, and JavaScript runs <a href="https://rally.wayne-mitchell.com">Rally</a>.</p>
+          </div>
+          <div class="card">
+            <div class="project-tag">Systems &amp; architecture</div>
+            <h3 class="card-title">Data structures, memory management, Design by Contract</h3>
+            <p class="card-copy">Layered design (UI, service, repository, database) in Rework, data-oriented design and custom contract macros in the game engine, plus coursework in operating systems, networking, and systems analysis and design.</p>
+          </div>
+          <div class="card">
+            <div class="project-tag">Tools</div>
+            <h3 class="card-title">Git, CMake, Qt6, SQLite, Google Test, raylib</h3>
+            <p class="card-copy">Rework is built with CMake and Qt6 on SQLite and packaged with windeployqt. The engine is built on raylib.</p>
+          </div>
+          <div class="card">
+            <div class="project-tag">Web</div>
+            <h3 class="card-title">HTML, CSS, JavaScript</h3>
+            <p class="card-copy">This site and Rally: semantic markup, accessible navigation, and a Cloudflare Workers backend for the contact form and the game.</p>
+          </div>
+          <div class="card">
+            <div class="project-tag">Data &amp; analytics</div>
+            <h3 class="card-title">Data analytics, R Studio, advanced statistics, MSSQL</h3>
+            <p class="card-copy">Coursework in statistics and data analytics, and SQL databases.</p>
+          </div>
+          <div class="card">
+            <div class="project-tag">Professional</div>
+            <h3 class="card-title">Process improvement, collaboration, technical communication</h3>
+            <p class="card-copy">Led 5S at an Amazon facility, trained teams on safety and process compliance, and worked with R&amp;D and Quality at Cresco Labs.</p>
+          </div>
         </div>
-        <div class="card">
-          <div class="project-tag">Systems</div>
-          <div class="card-title">Rendering, Networking, Performance</div>
-          <p class="card-copy">Experience designing real-time engines, async servers, and low-overhead data pipelines.</p>
-        </div>
-        <div class="card">
-          <div class="project-tag">Tools</div>
-          <div class="card-title">Git, CMake, Docker, Linux</div>
-          <p class="card-copy">Build automation, deployment workflows, and reproducible development environments.</p>
-        </div>
-        <div class="card">
-          <div class="project-tag">Design</div>
-          <div class="card-title">Architecture & collaboration</div>
-          <p class="card-copy">Clear module boundaries, reusable components, and maintainable interfaces for long-lived systems.</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer>
       <span>© 2026 Wayne Mitchell</span>
-      <span>Built for performance and clarity</span>
-      <span class="contact-divider"></span>
+      <span class="footer-sep" aria-hidden="true"></span>
+      <span>Naperville, IL</span>
+      <span class="footer-sep" aria-hidden="true"></span>
       <div class="footer-links">
         <a href="https://github.com/cjmit18" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <span class="contact-divider"></span>
         <a href="https://www.linkedin.com/in/wayne-mitchell-14363289/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:mymail@wayne-mitchell.com">Email</a>
       </div>
     </footer>
   </div>
