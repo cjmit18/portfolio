@@ -414,6 +414,12 @@ nav {
   border: 0.5px solid var(--clr-border);
   border-radius: 100px;
   color: var(--clr-muted);
+  transition: all 0.2s;
+}
+
+.skill-pill:hover {
+  border-color: var(--clr-accent);
+  color: var(--clr-accent);
 }
 
 .contact {
