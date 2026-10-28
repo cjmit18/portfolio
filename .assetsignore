@@ -1,0 +1,14 @@
+node_modules
+package.json
+package-lock.json
+worker.js
+wrangler.jsonc
+schema.sql
+test
+*.md
+.vscode
+.github
+.wrangler
+.dev.vars
+website.code-workspace
+contact.js
