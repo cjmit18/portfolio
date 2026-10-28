@@ -45,11 +45,11 @@
           <h2 class="card-title">Send a message</h2>
           <form class="contact-form" id="contact-form" action="/api/contact" method="post">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required>
+            <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
+            <input id="email" name="email" type="email" autocomplete="email" maxlength="254" required>
             <label for="message">Message</label>
-            <textarea id="message" name="message" rows="6" required></textarea>
+            <textarea id="message" name="message" rows="6" maxlength="5000" required></textarea>
             <label class="contact-trap" aria-hidden="true">Website
               <input name="website" type="text" tabindex="-1" autocomplete="off">
             </label>
@@ -73,9 +73,12 @@
     <script>
       const form = document.querySelector('#contact-form');
       const status = document.querySelector('#form-status');
+      const button = form.querySelector('button[type="submit"]');
 
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
+        if (button.disabled) return;
+        button.disabled = true;
         status.textContent = 'Sending...';
 
         try {
@@ -84,12 +87,14 @@
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(Object.fromEntries(new FormData(form)))
           });
-          const result = await response.json();
+          const result = await response.json().catch(() => ({}));
           if (!response.ok) throw new Error(result.error || 'The message could not be sent.');
           form.reset();
           status.textContent = 'Message sent. Thanks for reaching out.';
         } catch (error) {
-          status.textContent = error.message || 'The message could not be sent.';
+          status.textContent = (error.message || 'The message could not be sent.') + ' You can also email mymail@wayne-mitchell.com.';
+        } finally {
+          button.disabled = false;
         }
       });
     </script>
