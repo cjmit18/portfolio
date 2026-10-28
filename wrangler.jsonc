@@ -11,7 +11,7 @@
 	// Contact form notifications: each new message is emailed to CONTACT_TO through this SMTP mailbox.
 	// Set the mailbox password as a secret: npx wrangler secret put SMTP_PASSWORD. Without it no email is sent.
 	"vars": {
-		"SMTP_USER": "noreply@terminuscli.com",
+		"SMTP_USER": "mymail@wayne-mitchell.com",
 		"CONTACT_TO": "mymail@wayne-mitchell.com"
 	},
 	"d1_databases": [

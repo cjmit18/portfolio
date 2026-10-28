@@ -30,7 +30,7 @@ The site is deployed as the existing `portfolio` Worker. `worker.js` serves the 
    npm test
    ```
 
-5. Contact notifications: each new contact message is saved to D1 and then emailed to `CONTACT_TO` (set in `wrangler.jsonc`) through the `SMTP_USER` mailbox on Purelymail, port 465 only. Set that mailbox password as a secret, the same password Terminus CertSim uses:
+5. Contact notifications: each new contact message is saved to D1 and then emailed to `CONTACT_TO` (set in `wrangler.jsonc`) through the `SMTP_USER` mailbox (mymail@wayne-mitchell.com on Purelymail), port 465 only. Set that mailbox password as a secret:
 
    ```sh
    npx wrangler secret put SMTP_PASSWORD
