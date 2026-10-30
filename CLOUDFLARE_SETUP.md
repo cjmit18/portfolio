@@ -42,7 +42,15 @@ The site is deployed as the existing `portfolio` Worker. `worker.js` serves the 
    npx wrangler d1 execute wayne-mitchell-contact --remote --command "SELECT created_at, name, email, message FROM contact_messages ORDER BY id DESC LIMIT 20"
    ```
 
-6. Preview locally or deploy the existing Worker:
+6. Turnstile spam check: the contact form shows a Cloudflare Turnstile widget (site key in `contact.html`), and the Worker checks each token with Cloudflare before saving a message. Store the widget's secret key as a secret **before deploying**, or the form answers "not configured":
+
+   ```sh
+   npx wrangler secret put TURNSTILE_SECRET_KEY
+   ```
+
+   Copy the secret from the Cloudflare dashboard (Turnstile, then the widget, then Settings) and paste it at the prompt, never into a file or chat. The widget's hostname list must include every domain the form runs on, such as `wayne-mitchell.com`. For local testing, put Cloudflare's always-pass test secret `1x0000000000000000000000000000000AA` in `.dev.vars` as `TURNSTILE_SECRET_KEY` and temporarily use the test site key `1x00000000000000000000AA`.
+
+7. Preview locally or deploy the existing Worker:
 
    ```sh
    npx wrangler dev
