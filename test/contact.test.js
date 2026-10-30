@@ -1,6 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { handleContact } from '../contact.js';
+import { handleContact as rawHandle, verifyTurnstile } from '../contact.js';
+
+// Default: a stub that accepts any token once (tests below override it).
+const pass = async () => true;
+const handleContact = (req, env, ctx, send, verify = pass) =>
+  rawHandle(req, { TURNSTILE_SECRET_KEY: 'secret', ...env }, ctx, send, verify);
 
 function db({ fail = false } = {}) {
   const rows = [];
@@ -13,7 +18,7 @@ function db({ fail = false } = {}) {
 }
 const req = (body, type = 'application/json') =>
   new Request('https://x/api/contact', { method: 'POST', headers: { 'content-type': type }, body });
-const good = JSON.stringify({ name: 'Ada', email: 'Ada@Example.com', message: 'Hello' });
+const good = JSON.stringify({ name: 'Ada', email: 'Ada@Example.com', message: 'Hello', 'cf-turnstile-response': 'tok' });
 const mailEnv = { SMTP_USER: 'u', SMTP_PASSWORD: 'p', CONTACT_TO: 'me@x.com' };
 
 test('valid submission stores once and notifies', async () => {
@@ -62,4 +67,42 @@ test('honeypot is accepted silently and not stored', async () => {
   const res = await handleContact(req(JSON.stringify({ name: 'A', email: 'a@b.co', message: 'x', website: 'spam' })), env);
   assert.equal(res.status, 200);
   assert.equal(env.CONTACT_DB.rows.length, 0);
+});
+
+test('missing Turnstile token returns 400 and stores nothing', async () => {
+  const env = { CONTACT_DB: db() };
+  const res = await handleContact(req(JSON.stringify({ name: 'A', email: 'a@b.co', message: 'x' })), env);
+  assert.equal(res.status, 400);
+  assert.equal(env.CONTACT_DB.rows.length, 0);
+});
+test('rejected token returns 403 and stores nothing', async () => {
+  const env = { CONTACT_DB: db() };
+  const res = await handleContact(req(good), env, null, null, async () => false);
+  assert.equal(res.status, 403);
+  assert.equal(env.CONTACT_DB.rows.length, 0);
+});
+test('replayed token is rejected the second time', async () => {
+  const used = new Set();
+  const once = async (_env, token) => (used.has(token) ? false : (used.add(token), true));
+  const env = { CONTACT_DB: db() };
+  assert.equal((await handleContact(req(good), env, null, null, once)).status, 200);
+  assert.equal((await handleContact(req(good), env, null, null, once)).status, 403);
+  assert.equal(env.CONTACT_DB.rows.length, 1);
+});
+test('missing secret fails closed with 503', async () => {
+  const res = await rawHandle(req(good), { CONTACT_DB: db() }, null, null, pass);
+  assert.equal(res.status, 503);
+});
+test('verifyTurnstile sends secret, token and IP, and reads success', async () => {
+  let sent;
+  const fakeFetch = async (url, init) => { sent = { url, body: init.body }; return { json: async () => ({ success: true }) }; };
+  assert.equal(await verifyTurnstile({ TURNSTILE_SECRET_KEY: 's' }, 't', '1.2.3.4', fakeFetch), true);
+  assert.equal(sent.url, 'https://challenges.cloudflare.com/turnstile/v0/siteverify');
+  assert.equal(sent.body.get('secret'), 's');
+  assert.equal(sent.body.get('response'), 't');
+  assert.equal(sent.body.get('remoteip'), '1.2.3.4');
+});
+test('verifyTurnstile treats a network error as a failure', async () => {
+  const boom = async () => { throw new Error('down'); };
+  assert.equal(await verifyTurnstile({ TURNSTILE_SECRET_KEY: 's' }, 't', '', boom), false);
 });

@@ -18,6 +18,25 @@ export function jsonResponse(body, status = 200) {
   });
 }
 
+const SITEVERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+
+// Checks a Turnstile token with Cloudflare. Each token is single use and expires after 5 minutes,
+// so a replayed or stale token comes back with success: false.
+export async function verifyTurnstile(env, token, ip, fetchFn = fetch) {
+  const form = new FormData();
+  form.append('secret', env.TURNSTILE_SECRET_KEY);
+  form.append('response', token);
+  if (ip) form.append('remoteip', ip);
+  try {
+    const res = await fetchFn(SITEVERIFY_URL, { method: 'POST', body: form });
+    const outcome = await res.json();
+    return Boolean(outcome && outcome.success);
+  } catch (err) {
+    console.error('contact: turnstile check failed', err instanceof Error ? err.name : 'error');
+    return false;
+  }
+}
+
 export function notificationsEnabled(env) {
   return Boolean(env.SMTP_USER && env.SMTP_PASSWORD && env.CONTACT_TO);
 }
@@ -36,8 +55,8 @@ async function readJson(request) {
   }
 }
 
-export async function handleContact(request, env, ctx, send) {
-  if (!env.CONTACT_DB) {
+export async function handleContact(request, env, ctx, send, verify = verifyTurnstile) {
+  if (!env.CONTACT_DB || !env.TURNSTILE_SECRET_KEY) {
     return jsonResponse({ error: 'Contact service is not configured.' }, 503);
   }
 
@@ -70,6 +89,15 @@ export async function handleContact(request, env, ctx, send) {
 
   if (!name || !email || !message || !isEmail(email)) {
     return jsonResponse({ error: 'Enter your name, a valid email address, and a message.' }, 400);
+  }
+
+  const token = typeof body['cf-turnstile-response'] === 'string' ? body['cf-turnstile-response'] : '';
+  if (!token || token.length > 2048) {
+    return jsonResponse({ error: 'Complete the verification check, then send again.' }, 400);
+  }
+  const ip = request.headers.get('cf-connecting-ip') || '';
+  if (!(await verify(env, token, ip))) {
+    return jsonResponse({ error: 'Verification failed. Refresh the page and try again.' }, 403);
   }
 
   try {
